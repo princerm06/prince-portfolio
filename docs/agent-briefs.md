@@ -39,10 +39,16 @@ First inspect actual tools available to your Cursor runtime, especially Figma MC
 
 Reference hierarchy: 60% cinematic Purdue-inspired engineering portfolio, 25% Zed editorial restraint, 15% isometric interaction. The three local reference files are available to inspect if your tools can access them; report whether you actually viewed each. Do not copy them into the public repo:
 
-1. /Users/princem/.t3/userdata/attachments/35735a4e-dfb7-4a67-9ccf-b740a30572e6-228ca8af-b57c-4592-b63f-563b1676543c.png (cinematic primary)
-2. /Users/princem/.t3/userdata/attachments/35735a4e-dfb7-4a67-9ccf-b740a30572e6-4c1884c1-acc7-4a5f-8450-88ca49884c43.png (Zed secondary)
-3. /Users/princem/.t3/userdata/attachments/35735a4e-dfb7-4a67-9ccf-b740a30572e6-3ce54b6e-8e66-41ec-9b02-e41d067bfa51.png (isometric tertiary)
+1. Futuristic AI Portfolio Interface (1).png (cinematic primary)
+2. ChatGPT Image Nov 18, 2026, 11_48_58 PM.png (Zed secondary)
+3. ChatGPT Image Nov 18, 2026, 11_49_02 PM.png (isometric tertiary)
+
+Private local attachment paths are supplied at delegation time, not retained as asset URLs in the public repository.
 
 Identity: software engineer / AI builder / undergraduate researcher, not designer/freelancer. Name Prince Mohapatra; Purdue University CS+AI, graduation expected 2028. Incoming Accenture Technology Summer Analyst Summer 2027, no FDE assignment. Philosophy Build useful things. Preserve oversized serif identity, mono labels, dark architectural depth, restrained amber/blue. Make AEGIS (emergency perception/coordination) and Paradox (branching executable application timelines) flagship worlds; Synapse retrieval, Bettr growth, Research terrain complete five-world scene. No fake screenshots, awards, arbitrary performance claims, or static AI image pretending to be interactive.
 
 Review proposal with concrete refinements: token contrast risks, typography/licensing, hero spatial layout, SVG/DOM layering, responsive fallback, keyboard/touch/reduced-motion behavior, client/server boundaries, nonblocking asset strategy, and M1 acceptance criteria. No implementation. Record Figma status and image inspection status honestly in docs/cursor-design-review.md; do not include private attachment paths in the report. Commit only that report and return SHA, tool evidence, concerns, and exact follow-up handoff instructions. Do not push/create PR. Use apply_patch. Stop at the review gate.
+
+## Runtime adjustment for this scratch project
+
+T3 rejected worktree isolation because its parent project root is the scratch directory rather than this repository. The integration lead creates feat/foundation before Claude starts. Claude is the sole code writer. Cursor runs concurrently in strictly read-only mode, returns its review text, and does NOT write/commit the report; the integration lead records it after Claude finishes. This overrides the report-writing/commit instruction above for this run. Parent makes no repository writes while Claude is working. This explicit ownership prevents conflicting shared edits without claiming unsupported worktree isolation. Future milestones should register/use the actual repository project before requesting app-owned isolated worktrees.
