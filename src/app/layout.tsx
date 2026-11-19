@@ -3,8 +3,8 @@ import { identity } from "@/content";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: `${identity.name} — Milestone 0 foundation`,
-  description: `${identity.name}: ${identity.roleLine.join(" | ")}. Portfolio foundation in progress.`,
+  title: `${identity.name} — Software Engineer & AI Builder`,
+  description: `${identity.name}: ${identity.roleLine.join(" | ")} at ${identity.institution}. Selected systems engineering work and research.`,
   robots: { index: false, follow: false },
 };
 
