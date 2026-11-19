@@ -1,9 +1,18 @@
+import { existsSync } from "node:fs";
+import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { experience, identity, projects } from "@/content";
 import {
+  getEcosystemWorlds,
   getFeaturedProjects,
   getIncomingExperience,
+  getProjectAnchorId,
   getProjectBySlug,
+  getProjectHref,
+  getProjectsByCollection,
+  getPublishedContactLinks,
+  homeSectionIds,
+  isFlagshipProject,
 } from "@/lib/content";
 
 const slugPattern = /^[a-z0-9]+(-[a-z0-9]+)*$/;
@@ -205,5 +214,68 @@ describe("identity and unresolved contact fields", () => {
     expect(identity.linkedin).toBeNull();
     expect(identity.email).toBeNull();
     expect(identity.resumePdf).toBeNull();
+  });
+});
+
+describe("homepage queries", () => {
+  it("orders the five ecosystem worlds by the approved hierarchy", () => {
+    const worlds = getEcosystemWorlds();
+    expect(worlds.map((world) => world.key)).toEqual([
+      "aegis",
+      "paradox",
+      "synapse",
+      "bettr",
+      "research",
+    ]);
+    expect(worlds.map((world) => world.depth)).toEqual([
+      "foreground",
+      "foreground",
+      "midground",
+      "midground",
+      "context",
+    ]);
+  });
+
+  it("derives project worlds from featured records instead of copying them", () => {
+    const projectWorlds = getEcosystemWorlds().filter((world) => world.key !== "research");
+    expect(projectWorlds.map((world) => world.projects)).toEqual(
+      getFeaturedProjects().map((project) => [project]),
+    );
+    for (const world of projectWorlds) {
+      expect(world.projects[0]).toBe(getProjectBySlug(world.key));
+      expect(world.label).toBe(world.projects[0]?.name);
+    }
+  });
+
+  it("gives the research world every research record", () => {
+    const research = getEcosystemWorlds().find((world) => world.key === "research");
+    expect(research?.projects).toEqual(getProjectsByCollection("research"));
+    expect(research?.projects.length).toBeGreaterThan(0);
+    expect(research?.href).toBe(`#${homeSectionIds.research}`);
+  });
+
+  it("marks only AEGIS and Paradox as flagship", () => {
+    expect(projects.filter(isFlagshipProject).map((project) => project.name)).toEqual([
+      "AEGIS",
+      "Paradox",
+    ]);
+  });
+
+  it("links to unique in-page anchors until case-study routes exist", () => {
+    expect(existsSync(join(process.cwd(), "src/app/projects"))).toBe(false);
+    const anchorIds = projects.map((project) => getProjectAnchorId(project.slug));
+    expect(new Set(anchorIds).size).toBe(projects.length);
+    for (const project of projects) {
+      expect(getProjectHref(project.slug)).toBe(`#${getProjectAnchorId(project.slug)}`);
+    }
+    for (const world of getEcosystemWorlds()) {
+      expect(world.href).toMatch(/^#[a-z0-9-]+$/);
+    }
+  });
+
+  it("publishes only approved contact destinations", () => {
+    expect(getPublishedContactLinks()).toEqual([
+      { kind: "github", label: "GitHub", href: "https://github.com/princerm06" },
+    ]);
   });
 });

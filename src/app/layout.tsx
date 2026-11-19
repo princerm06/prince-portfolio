@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { identity } from "@/content";
+import { fontVariables } from "./fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -17,7 +18,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={fontVariables}>
       <body className="min-h-screen antialiased">
         <a
           href="#main"
