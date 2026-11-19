@@ -11,7 +11,7 @@ export function getFeaturedProjects(): Project[] {
       (project): project is Project & { featuredRank: number } =>
         project.featuredRank !== null,
     )
-    .sort((a, b) => a.featuredRank - b.featuredRank);
+    .sort((firstProject, secondProject) => firstProject.featuredRank - secondProject.featuredRank);
 }
 
 export function getProjectsByCollection(

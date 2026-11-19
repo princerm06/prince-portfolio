@@ -4,11 +4,11 @@ Source for Prince Mohapatra's public engineering portfolio (Software Engineer | 
 
 ## Status
 
-**Milestone 0 only: the application foundation.** The root page is a neutral status page (identity, Milestone 0 status, GitHub link). It is marked `noindex, nofollow`. The homepage, ecosystem visualization, project pages, and all other public content are not built.
+**Milestone 0 foundation is complete and verified.** Typed content, CI, and the neutral status root page ship on `feat/foundation`. Architecture and design direction are **owner-approved** (2026-11-19); see `docs/architecture.md`, `docs/design-system.md`, and `docs/cursor-design-review.md`.
 
-### Milestone 1 approval gate
+### Milestone 1
 
-Milestone 1 does not start until the owner explicitly approves the proposals in `docs/architecture.md` and `docs/design-system.md`. Acceptance criteria are in `docs/milestone-1-checklist.md`. Owner approval is pending.
+Milestone 1 homepage implementation is authorized on dedicated feature branches (not `main`). Acceptance criteria: `docs/milestone-1-checklist.md`. Figma remains optional and must not block initial development. No merges to `main`, production deploys, or destructive git operations without master-planner approval.
 
 ## Toolchain
 

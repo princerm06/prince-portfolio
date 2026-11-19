@@ -24,7 +24,7 @@ describe("project records", () => {
       project.evidence.map((record) => record.id),
     );
     const metricIds = projects.flatMap((project) =>
-      project.evidence.flatMap((record) => record.metrics.map((m) => m.id)),
+      project.evidence.flatMap((record) => record.metrics.map((metric) => metric.id)),
     );
     expect(new Set(evidenceIds).size).toBe(evidenceIds.length);
     expect(new Set(metricIds).size).toBe(metricIds.length);
@@ -109,9 +109,9 @@ describe("evidence and provenance", () => {
     );
     expect(sdk?.generationMethod).toBe("factory-droid-sdk");
     expect(nasa?.generationMethod).toBe("scripted");
-    expect(sdk?.metrics.map((m) => m.value)).toEqual(["26", "6"]);
-    expect(nasa?.metrics.map((m) => m.value)).toContain("1,198");
-    const sdkMetricIds = new Set(sdk?.metrics.map((m) => m.id));
+    expect(sdk?.metrics.map((metric) => metric.value)).toEqual(["26", "6"]);
+    expect(nasa?.metrics.map((metric) => metric.value)).toContain("1,198");
+    const sdkMetricIds = new Set(sdk?.metrics.map((metric) => metric.id));
     for (const metric of nasa?.metrics ?? []) {
       expect(sdkMetricIds.has(metric.id)).toBe(false);
     }
@@ -127,7 +127,7 @@ describe("evidence and provenance", () => {
 
   it("records owner-supplied benchmark values without extension", () => {
     const synapse = getProjectBySlug("synapse");
-    const values = synapse?.evidence[0]?.metrics.map((m) => m.value);
+    const values = synapse?.evidence[0]?.metrics.map((metric) => metric.value);
     expect(values).toEqual(["0.840", "0.840", "0.820"]);
     expect(getProjectBySlug("aegis")?.evidence[0]?.metrics[0]?.value).toBe("455");
   });
