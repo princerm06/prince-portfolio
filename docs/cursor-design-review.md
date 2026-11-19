@@ -2,6 +2,8 @@
 
 Reviewed by Cursor (provider cursor, model default) in a read-only delegated task. Integration lead reviewed its returned report and records the findings here. Cursor made no repository or Figma edits. This review is NOT owner approval.
 
+The preceding paragraph describes the original M0 audit. In a separate later user-directed run, the owner explicitly approved this direction on November 19, 2026 and authorized M1 under the refinements recorded in architecture.md/design-system.md. Parent verified the actual approval message, not merely the approval commit title. No Figma access is implied by that approval.
+
 ## Actual reported capability evidence
 
 - Figma MCP: **not verified / unavailable in the delegated runtime**. Cursor reported live namespaces cursor, Refero, and t3-code, but no Figma namespace or design-context/file-creation tools. Local plugin cache/skills are not proof of live MCP access.

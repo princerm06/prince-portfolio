@@ -2,7 +2,7 @@ import { identity } from "@/content";
 import { getIncomingExperience, getPendingExperience } from "@/lib/content";
 
 const pendingItems = [
-  "Owner review of the architecture and design proposals",
+  "Integration and verification of the approved homepage implementation",
   "LinkedIn URL",
   "Public contact email",
   "Approved resume PDF",
@@ -62,8 +62,9 @@ export default function Home() {
           <p className="mt-4">
             This site is at Milestone 0: the engineering foundation only. The
             homepage, project pages, and other public content are not built.
-            They are blocked on owner review of the architecture and visual
-            direction proposals, which is pending.
+            The architecture and visual direction are owner-approved. Homepage
+            implementation proceeds on separate feature branches and is not yet
+            integrated here.
           </p>
           {incoming.map((record) => (
             <p key={record.slug} className="mt-4">

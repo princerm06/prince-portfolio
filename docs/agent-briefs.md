@@ -1,5 +1,7 @@
 # Exact agent task prompts and ownership
 
+Original exact M0 assignments, including content baseline and runtime adjustment, are archived in docs/milestone-0-agent-briefs.md. The sections below govern the separately approved M1 work.
+
 These prompts are self-contained assignments. Agents do not inherit the parent conversation.
 
 Architecture and design are **owner-approved** (2026-11-19). Milestone 1 is authorized on dedicated feature branches.

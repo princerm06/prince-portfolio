@@ -5,10 +5,11 @@
 - `feat/foundation`: Claude application foundation @ `9cd8e86`; design review recorded after owner approval.
 - App-owned worktree isolation was initially rejected while this checkout lived only under the T3 Scratch project. The repository is now registered as T3 project `prince-portfolio` (`mcp:5803d432-0971-462a-9267-7203837caceb`) for Milestone 1 isolation.
 - No merge to `main` without master-planner approval.
+- Parent master planner subsequently reviewed, fast-forwarded, and pushed M0 to main at 4f6adf2 with successful remote CI. M1 work remains separate and is not merged by this M0 handoff.
 
 ## Milestone 1 (authorized 2026-11-19)
 
-Base all M1 branches from the latest `feat/foundation` (or `main` only after foundation is merged by master-planner). Prefer `t3_thread_launch` / `delegate_task` with worktree isolation against the registered `prince-portfolio` project.
+Base M1 work on reviewed main (or rebase onto it after integration); do not implicitly copy uncommitted edits. Use delegate_task with worktree isolation against the registered repository project for child agents. Ordinary top-level threads require an explicit user request for separate conversations; a request for subagents or worktrees alone does not authorize them.
 
 | Branch | Owner | Scope | Dependency |
 | --- | --- | --- | --- |
