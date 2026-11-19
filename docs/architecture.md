@@ -13,6 +13,7 @@ Engineering portfolio for recruiters, engineering leaders, researchers, and coll
 - Structured TypeScript content first. Introduce MDX only when technical prose warrants its additional build surface.
 - Vitest for schema and content invariants. Browser navigation, keyboard, viewport, reduced-motion, and axe checks added alongside actual interactive UI.
 - GitHub Actions: frozen install, typecheck, lint, unit tests, production build. Single supported Node version pinned in .nvmrc and CI; exact pnpm version in packageManager.
+- Implemented M0 toolchain: Node 24.22.3 and pnpm 12.21.0 (superseding the initially available local Node 20 runtime); dependency versions are exact in package.json. CI provisions Node before pnpm.
 - Vercel deployment in Milestone 4 only. No production domain or successful deployment is assumed.
 - Milestone 0 root page was a neutral foundation status page. Milestone 1 replaces it with the approved editorial homepage + ecosystem, still `noindex` until launch readiness unless the owner directs otherwise.
 
